@@ -1,0 +1,112 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block title %}  {% endblock %}
+
+
+{%block content%}
+
+    <div class="offcanvas-overlay"></div>
+    <!-- breadcrumb-area start -->
+    <div class="breadcrumb-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="row breadcrumb_box  align-items-center">
+                        <div class="col-lg-6 col-md-6 col-sm-12 text-center text-md-start">
+                            <h2 class="breadcrumb-title">Registration</h2>
+                        </div>
+                        <div class="col-lg-6  col-md-6 col-sm-12">
+                            <!-- breadcrumb-list start -->
+                            <ul class="breadcrumb-list text-center text-md-end">
+                                <li class="breadcrumb-item"><a href="{%url 'index' %}">Home</a></li>
+                                <li class="breadcrumb-item active">Login</li>
+                            </ul>
+                            <!-- breadcrumb-list end -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- breadcrumb-area end -->
+    <!-- login area start -->
+    <div class="login-register-area pt-100px pb-100px">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 col-md-12 ml-auto mr-auto">
+                    <div class="login-register-wrapper">
+                        <div class="login-register-tab-list nav">
+                            <a href="{% url 'mylogin' %}">
+                                <h4>login</h4>
+                            </a>
+                            <a class="active" href="{% url 'register' %}">
+                                <h4>register</h4>
+                            </a>
+                        </div>
+                            <div id="lg2" class="tab-pane">
+                                <div class="login-form-container">
+                                    <div class="login-register-form">
+                                        <form action="" method="post">
+                                            {% csrf_token %}
+                                            <label>First Name</label>
+                                            {{ form.first_name }}
+                                                {% if  form.first_name.errors %}
+                                                    {% for error in form.first_name.errors %}
+                                                            {{ error|escape }}
+                                                    {% endfor %}
+                                                {% endif %}
+                                            <label>Last Name</label>
+                                                          {{ form.last_name }}
+                                                {% if  form.last_name.errors %}
+                                                    {% for error in form.last_name.errors %}
+                                                            {{ error|escape }}
+                                                    {% endfor %}
+                                                {% endif %}
+                                            <label>Username</label>
+                                                          {{ form.username }}
+                                                {% if  form.username.errors %}
+                                                    {% for error in form.username.errors %}
+                                                            {{ error|escape }}
+                                                    {% endfor %}
+                                                {% endif %}
+                                            <label>Email</label>
+                                                          {{ form.email }}
+                                                {% if  form.email.errors %}
+                                                    {% for error in form.email.errors %}
+                                                            {{ error|escape }}
+                                                    {% endfor %}
+                                                {% endif %}
+                                            <label>Password</label>
+                                                          {{ form.password1 }}
+                                                {% if  form.password1.errors %}
+                                                    {% for error in form.password1.errors %}
+                                                            {{ error|escape }}
+                                                    {% endfor %}
+                                                {% endif %}
+                                            <label>Password</label>
+                                                           {{ form.password2 }}
+                                                {% if  form.password2.errors %}
+                                                    {% for error in form.password2.errors %}
+                                                            {{ error|escape }}
+                                                    {% endfor %}
+                                                {% endif %}
+                                            <div class="button-box">
+                                                <button type="submit"><span>Register</span></button>
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- login area end -->
+
+
+{%endblock%}
+
+{%block script%}
+{%endblock%}

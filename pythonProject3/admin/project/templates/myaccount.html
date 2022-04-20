@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block title %}  {% endblock %}
+
+
+{%block content%}
+    <div class="offcanvas-overlay"></div>
+    <!-- breadcrumb-area start -->
+    <div class="breadcrumb-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="row breadcrumb_box  align-items-center">
+                        <div class="col-lg-6 col-md-6 col-sm-12 text-center text-md-start">
+                            <h2 class="breadcrumb-title">Account</h2>
+                        </div>
+                        <div class="col-lg-6  col-md-6 col-sm-12">
+                            <!-- breadcrumb-list start -->
+                            <ul class="breadcrumb-list text-center text-md-end">
+                                <li class="breadcrumb-item"><a href="{%url 'index' %}">Home</a></li>
+                                <li class="breadcrumb-item active">Account</li>
+                            </ul>
+                            <!-- breadcrumb-list end -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- breadcrumb-area end -->
+
+    <!-- account area start -->
+    <div class="checkout-area pt-100px pb-100px">
+<hr>
+    <h3>{{user.first_name}}</h3>
+<hr>
+    <h3>{{user.last_name}}</h3>
+<hr>
+   <h3>{{user.username}}</h3>
+<hr>
+    </div>
+    <!-- account area end -->
+
+{%endblock%}
+
+{%block script%}
+{%endblock%}

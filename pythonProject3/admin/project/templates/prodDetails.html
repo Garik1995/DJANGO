@@ -1,0 +1,98 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block title %}  {% endblock %}
+
+
+{%block content%}
+<div class="breadcrumb-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="row breadcrumb_box  align-items-center">
+                        <div class="col-lg-6 col-md-6 col-sm-12 text-center text-md-start">
+                            <h2 class="breadcrumb-title">Product Details</h2>
+                        </div>
+                        <div class="col-lg-6  col-md-6 col-sm-12">
+                            <!-- breadcrumb-list start -->
+                            <ul class="breadcrumb-list text-center text-md-end">
+                                <li class="breadcrumb-item"><a href="{%url 'index' %}">Home</a></li>
+                                <li class="breadcrumb-item active">Product Details</li>
+                            </ul>
+                            <!-- breadcrumb-list end -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<div id="add">
+<div class="product-details-area pt-100px pb-100px">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-sm-12 col-xs-12 mb-lm-30px mb-md-30px mb-sm-30px">
+                    <!-- Swiper -->
+                    <div class="swiper-container zoom-top swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events">
+                        <div class="swiper-wrapper" id="swiper-wrapper-f9e44fabe1102406d" aria-live="polite" style="transform: translate3d(0px, 0px, 0px);">
+                            <div >
+                                <img  src="/media/{{info.photo.first.photo_url}}" alt="">
+
+                            </div>
+                        </div>
+                    <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+                    <div class="swiper-container zoom-thumbs slider-nav-style-1 small-nav mt-15px mb-15px swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events swiper-container-free-mode swiper-container-thumbs">
+                        <div class="swiper-wrapper" id="swiper-wrapper-e14273c7f9b9a733" aria-live="polite" style="transform: translate3d(0px, 0px, 0px);"></div>
+                        <!-- Add Arrows -->
+                        <div class="swiper-buttons">
+                            <div class="swiper-button-next" tabindex="0" role="button" aria-label="Next slide" aria-controls="swiper-wrapper-f9e44fabe1102406d" aria-disabled="false"></div>
+                            <div class="swiper-button-prev swiper-button-disabled" tabindex="-1" role="button" aria-label="Previous slide" aria-controls="swiper-wrapper-f9e44fabe1102406d" aria-disabled="true"></div>
+                        </div>
+                    <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+                </div>
+                <div class="col-lg-7 col-sm-12 col-xs-12" data-aos="fade-up" data-aos-delay="200">
+                    <div class="product-details-content quickview-content">
+                        <h2>{{info.name}}</h2>
+                        <p class="reference">Reference:<span></span></p>
+                        <div class="pro-details-rating-wrap">
+                            <div class="rating-product">
+                                <i class="ion-android-star"></i>
+                                <i class="ion-android-star"></i>
+                                <i class="ion-android-star"></i>
+                                <i class="ion-android-star"></i>
+                                <i class="ion-android-star"></i>
+                            </div>
+                        </div>
+                        <div class="pricing-meta">
+                            <ul>
+                                <li class="old-price not-cut">${{info.price}}</li>
+                            </ul>
+                        </div>
+                        <p class="quickview-para">{{info.description}}</p>
+                        <div class="pro-details-quality">
+                            <div class="cart-plus-minus"><div class="dec qtybutton">-</div>
+                                <input class="cart-plus-minus-box" type="text" name="qtybutton" value="1">
+                            <div class="inc qtybutton">+</div>
+                        </div>
+                            <div class="pro-details-cart">
+                                <button class="add-cart btn btn-primary btn-hover-primary ml-4" @click="cart({{info.id}})"> Add To Cart</button>
+                                <button class="add-cart btn btn-primary btn-hover-primary ml-4" @click="wish({{info.id}})"> Add To Wish</button>
+                            </div>
+                        </div>
+                        <div class="pro-details-wish-com">
+                            <div class="pro-details-wishlist">
+                                <a href="{% url 'delete1' info.id %}"><i class="fa fa-trash-o" style="font-size:20px"></i>Delete</a>
+                                <a href="{% url 'edit' info.id %}"><i class="fa fa-edit" style="font-size:20px"></i>Edit</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{%endblock%}
+{%block script%}
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.25.0/axios.min.js"></script>
+<script src="{% static 'assets/js/cart.js' %}"></script>
+{%endblock%}

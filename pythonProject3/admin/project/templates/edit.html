@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block title %}  {% endblock %}
+
+
+{%block content%}
+<form method="POST" style="
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+    height: 65%;
+">
+{% csrf_token %}
+
+<label>Name</label>
+<input type="text" name="name" value="{{edit.name}}" />
+
+
+<hr>
+<label>Price</label>
+<input type="number" name="price" value="{{edit.price}}" />
+
+
+<hr>
+<label>Count</label>
+<input type="number" name="count" value="{{edit.count}}" />
+
+<hr>
+<label>Description</label>
+<input type="text" name="description" value="{{edit.description}}" />
+<hr>
+<input type="submit" value="Сохранить" >
+</form>
+
+
+
+{%endblock%}
+
+{%block script%}
+{%endblock%}

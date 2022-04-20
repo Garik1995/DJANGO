@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block title %}  {% endblock %}
+
+
+{%block content%}
+
+
+<form  method="post" enctype="multipart/form-data" style="
+    width: 50%;
+
+">
+    {% csrf_token %}
+    <label>Name</label>
+    {{ form.name }}
+        {% if  form.name.errors %}
+            {% for error in form.name.errors %}
+                       <h4>{{ error|escape }}</h4>
+            {% endfor %}
+        {% endif %}
+
+    <br>
+    <label>Price</label>
+    {{ form.price }}
+        {% if  form.price.errors %}
+            {% for error in form.price.errors %}
+                       <h4>{{ error|escape }}</h4>
+            {% endfor %}
+        {% endif %}
+
+<br>
+    <label>Count</label>
+    {{ form.count }}
+        {% if  form.count.errors %}
+            {% for error in form.count.errors %}
+                       <h4>{{ error|escape }}</h4>
+            {% endfor %}
+        {% endif %}
+
+<br>
+    <label>Description</label>
+    {{ form.description }}
+        {% if  form.description.errors %}
+            {% for error in form.description.errors %}
+                       <h4>{{ error|escape }}</h4>
+            {% endfor %}
+        {% endif %}
+<br>
+    <label>Image</label>
+    {{ imageform.photo_url }}
+        {% if  imageform.photo_url.errors %}
+            {% for error in imageform.photo_url.errors %}
+                       <h4>{{ error|escape }}</h4>
+            {% endfor %}
+        {% endif %}
+<div class="button-box">
+    <button type="submit"><span>Add Product</span></button>
+</div>
+
+</form>
+
+
+{%endblock%}
+
+{%block script%}
+{%endblock%}
